@@ -1,0 +1,219 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image_container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hoverImage {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  object-fit: contain;
+  pointer-events: none;
+  transition: transform 1s ease-in-out, filter 0.1s ease-in-out;
+  top: 20%;
+}
+
+#hanni {
+  right: -0.3%;
+  animation: ImagesAppearing 2s forwards;
+}
+#danielle {
+  right: -0.2%;
+  animation: ImagesAppearing 1.5s forwards;
+}
+#haerin {
+  animation: ImagesAppearing 1s forwards;
+}
+#hyein {
+  left: -0.2%;
+  animation: ImagesAppearing 1.5s forwards;
+}
+
+#hyein {
+  left: -0.2%;
+  animation: ImagesAppearing 1.5s forwards;
+}
+#minji {
+  left: -0.2%;
+  animation: ImagesAppearing 2s forwards;
+}
+.hoverImage.hovered {
+  cursor: pointer;
+  transform: scale(1.02) translateY(-0.2%);
+  filter: brightness(1);
+  z-index: 2;
+  pointer-events: auto;
+}
+.hoverImage.hovered#hanni {
+  filter: drop-shadow(1px 0 0 rgb(255, 116, 139)) drop-shadow(-1px 0 0 rgb(255, 116, 139))
+    drop-shadow(0 1px 0 rgb(255, 116, 139)) drop-shadow(0 -1px 0 rgb(255, 116, 139))
+    drop-shadow(1px 1px 0 rgb(255, 116, 139)) drop-shadow(-1px -1px 0 rgb(255, 116, 139))
+    drop-shadow(1px -1px 0 rgb(255, 116, 139)) drop-shadow(-1px 1px 0 rgb(255, 116, 139));
+}
+.hoverImage.hovered#danielle {
+  filter: drop-shadow(1px 0 0 rgb(255, 243, 74)) drop-shadow(-1px 0 0 rgb(255, 243, 74))
+    drop-shadow(0 1px 0 rgb(255, 243, 74)) drop-shadow(0 -1px 0 rgb(255, 243, 74))
+    drop-shadow(1px 1px 0 rgb(255, 243, 74)) drop-shadow(-1px -1px 0 rgb(255, 243, 74))
+    drop-shadow(1px -1px 0 rgb(255, 243, 74)) drop-shadow(-1px 1px 0 rgb(255, 243, 74));
+}
+.hoverImage.hovered#minji {
+  filter: drop-shadow(1px 0 0 rgb(49, 49, 255)) drop-shadow(-1px 0 0 rgb(49, 49, 255)
+  )
+    drop-shadow(0 1px 0 rgb(49, 49, 255)) drop-shadow(0 -1px 0 rgb(49, 49, 255))
+    drop-shadow(1px 1px 0 rgb(49, 49, 255)) drop-shadow(-1px -1px 0 rgb(49, 49, 255))
+    drop-shadow(1px -1px 0 rgb(49, 49, 255)) drop-shadow(-1px 1px 0 rgb(49, 49, 255));
+}
+.hoverImage.hovered#haerin {
+  filter: drop-shadow(1px 0 0 rgb(121, 255, 81)) drop-shadow(-1px 0 0 rgb(121, 255, 81))
+    drop-shadow(0 1px 0 rgb(121, 255, 81)) drop-shadow(0 -1px 0 rgb(121, 255, 81))
+    drop-shadow(1px 1px 0 rgb(121, 255, 81)) drop-shadow(-1px -1px 0 rgb(121, 255, 81))
+    drop-shadow(1px -1px 0 rgb(121, 255, 81)) drop-shadow(-1px 1px 0 rgb(121, 255, 81));
+    
+}
+.hoverImage.hovered#hyein {
+  filter: drop-shadow(1px 0 0 rgb(167, 50, 167)) drop-shadow(-1px 0 0 rgb(167, 50, 167))
+    drop-shadow(0 1px 0 rgb(167, 50, 167)) drop-shadow(0 -1px 0 rgb(167, 50, 167))
+    drop-shadow(1px 1px 0 rgb(167, 50, 167)) drop-shadow(-1px -1px 0 rgb(167, 50, 167))
+    drop-shadow(1px -1px 0 rgb(167, 50, 167)) drop-shadow(-1px 1px 0 rgb(167, 50, 167));
+}
+.hoverImage.not-hovered {
+  filter: brightness(0.5);
+  z-index: 0;
+}
+
+.letter-container {
+  position: relative;
+  top: 4%;
+  width: 100%;
+  height: auto;
+}
+
+.letter-n,
+.letter-z,
+.letter-j {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7%;
+  height: auto;
+  opacity: 0;
+}
+
+.letter-n {
+  animation: TitleAppearingN 3s forwards;
+  animation-delay: 0s;
+  top: 2%;
+}
+
+.letter-z {
+  animation: TitleAppearingZ 3s forwards;
+  animation-delay: 1s;
+  top: 2%;
+}
+
+.letter-j {
+  width: 5.5%;
+  top: 0;
+  animation: TitleAppearingJ 3s forwards;
+  animation-delay: 2s;
+}
+
+@keyframes movingLettersN {
+  0% {
+    opacity: 1;
+    transform: translateX(-150%) translateY(10%) rotate(-10deg);
+  }
+  50% {
+    transform: translateX(-150%) translateY(9%) rotate(-10deg);
+  }
+  100% {
+    transform: translateX(-150%) translateY(10%) rotate(-10deg);
+    opacity: 1;
+  }
+}
+@keyframes movingLettersJ {
+  0% {
+    transform: translateX(-50%) translateY(-8%) rotate(0deg);
+
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-7%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-8%) rotate(0deg);
+    opacity: 1;
+  }
+}
+@keyframes movingLettersZ {
+  0% {
+    transform: translateX(50%) translateY(10%) rotate(10deg);
+
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(50%) translateY(9%) rotate(10deg);
+  }
+  100% {
+    transform: translateX(50%) translateY(10%) rotate(10deg);
+    opacity: 1;
+  }
+}
+@keyframes TitleAppearingN {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-60%) rotate(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-150%) translateY(10%) rotate(-10deg);
+  }
+}
+
+@keyframes TitleAppearingZ {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  10% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(50%) translateY(10%) rotate(10deg);
+    opacity: 1;
+  }
+}
+
+@keyframes TitleAppearingJ {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8%) rotate(0deg);
+  }
+}
+
+@keyframes ImagesAppearing {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+  }
+}

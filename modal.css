@@ -1,0 +1,112 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  overflow: hidden;
+  animation: modalAppearing 2s forwards;
+  opacity: 0;
+  animation-delay: 1s;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  position: relative;
+  display: grid;
+  z-index: 10;
+  width: 90%;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  animation: contentAppearing 2s forwards;
+  opacity: 0;
+  animation-delay: 2s;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+  z-index: 1;
+}
+
+.modal-sector {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.modal-title {
+  font-weight: bold;
+  color: white;
+  font-size: xxx-large;
+  text-align: center;
+  margin-top: 17%;
+  font-family: "Bungee", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.modal-title::first-letter {
+  color: #f5ff69;
+  font-size: 4rem;
+}
+
+.modal-text {
+  color: white;
+  text-align: left;
+  margin-top: 10px;
+  font-family: "Changa One", serif;
+  font-weight: lighter;
+  font-style: normal;
+}
+.modal-image {
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+  align-items: center;
+  margin: auto;
+  border-radius: 100%;
+}
+
+@keyframes contentAppearing {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modalAppearing {
+  0% {
+    transform: scale(0);
+    border-radius: 100%;
+    opacity: 0;
+  }
+  50% {
+    border-radius: 50%;
+  }
+  100% {
+    transform: scale(1);
+    border-radius: 0%;
+    opacity: 1;
+  }
+}

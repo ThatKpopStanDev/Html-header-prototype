@@ -5,7 +5,14 @@
     <title>NJZ</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="modal.css" />
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
+    <script src="modal.js"></script>
+    <script type="module" src="shader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,64 +23,53 @@
       href="https://fonts.googleapis.com/css2?family=Bungee&family=Changa+One:ital@0;1&family=Darumadrop+One&family=Jacquard+12&family=Jacquarda+Bastarda+9&family=Silkscreen:wght@400;700&family=Ultra&display=swap"
       rel="stylesheet"
     />
-
-    <script type="module" src="shader.js"></script>
   </head>
   <body>
     <div class="letter-container">
-      <img src="textImage/N.png" alt="" class="letter-n" />
-      <img src="textImage/J.png" alt="" class="letter-j" />
-      <img src="textImage/Z.png" alt="" class="letter-z" />
+      <img src="assets/textImage/N.png" alt="" class="letter-n" />
+      <img src="assets/textImage/J.png" alt="" class="letter-j" />
+      <img src="assets/textImage/Z.png" alt="" class="letter-z" />
     </div>
     <div class="image_container">
       <!-- Las imágenes ocupan toda la pantalla -->
       <img
         class="hoverImage"
-        src="images/ConceptTwoHaerinWithoutCut.png"
+        src="assets/images/ConceptTwoHaerinWithoutCut.png"
         id="haerin"
         alt="haerin"
       />
       <img
         class="hoverImage"
-        src="images/ConceptTwoMinjiWithoutCut.png"
+        src="assets/images/ConceptTwoMinjiWithoutCut.png"
         id="minji"
         alt="minji"
       />
       <img
         class="hoverImage"
-        src="images/ConceptTwoDaniWithoutCut.png"
+        src="assets/images/ConceptTwoDaniWithoutCut.png"
         id="danielle"
         alt="danielle"
       />
       <img
         class="hoverImage"
-        src="images/ConceptTwoHanniWithoutCut.png"
+        src="assets/images/ConceptTwoHanniWithoutCut.png"
         id="hanni"
         alt="hanni"
       />
       <img
         class="hoverImage"
-        src="images/ConceptTwoHyeinWithoutCut.png"
+        src="assets/images/ConceptTwoHyeinWithoutCut.png"
         id="hyein"
         alt="hyein"
       />
     </div>
 
-    <div class="modal hidden">
+    <div class="modal">
+      <div class="modal-close-control">
+        <button class="modal-close-button"><- go back</button>
+      </div>
       <div class="modal-content">
-        <div class="modal-sector">
-          <img
-            class="modal-image"
-            src="modalImages/danniface.webp"
-            alt="haerin"
-          />
-        </div>
-        <div class="modal-sector">
-          <div class="modal-text-sector">
-            <h1 class="modal-title">Danielle</h1>
-  
-          </div>
-        </div>
+       
       </div>
     </div>
   </body>

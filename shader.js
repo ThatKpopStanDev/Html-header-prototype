@@ -114,7 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
     uniforms.resolution.value.x = window.innerWidth;
     uniforms.resolution.value.y = window.innerHeight;
     const scale = calculateScale(window.innerWidth, window.innerHeight);
-    console.log(scale);
     uniforms.scale.value = scale;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();

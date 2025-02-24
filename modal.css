@@ -3,35 +3,46 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
   justify-content: center;
   align-items: center;
   z-index: 10;
-  overflow: hidden;
-  animation: modalAppearing 2s forwards;
-  opacity: 0;
-  animation-delay: 1s;
+  display: none;
+  border-radius: 100%;
 }
 
-.modal.hidden {
-  display: none;
+.modal.show {
+  display: flex;
 }
 
 .modal-content {
   position: relative;
-  display: grid;
   z-index: 10;
-  width: 90%;
-  height: 70%;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  animation: contentAppearing 2s forwards;
+  width: 80%;
+  overflow-y: auto;
+  height: 70vh;
+  display: flex;
+  flex-flow: column;
   opacity: 0;
-  animation-delay: 2s;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: 0px;
 }
 
+.content-sector {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+
+  box-sizing: border-box;
+}
 canvas {
   position: absolute;
   top: 0;
@@ -40,15 +51,16 @@ canvas {
   height: 100%;
   object-fit: cover;
   filter: brightness(0.4);
-  z-index: 1;
+  z-index: 2;
+  opacity: 1;
 }
 
 .modal-sector {
-  width: 100%;
-  height: 100%;
+  width: 50%;
   display: flex;
-  padding: 10px;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-title {
@@ -56,57 +68,100 @@ canvas {
   color: white;
   font-size: xxx-large;
   text-align: center;
-  margin-top: 17%;
   font-family: "Bungee", serif;
   font-weight: 400;
   font-style: normal;
-}
-
-.modal-title::first-letter {
-  color: #f5ff69;
-  font-size: 4rem;
+  text-wrap: pretty;
 }
 
 .modal-text {
   color: white;
   text-align: left;
   margin-top: 10px;
+  font-size: x-large;
   font-family: "Changa One", serif;
   font-weight: lighter;
   font-style: normal;
+  text-wrap: pretty;
 }
+
 .modal-image {
   width: 60%;
   height: 60%;
-  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Modal titles */
+#modal-title-hanni::first-letter {
+  color: rgb(255, 116, 139);
+}
+#modal-title-danielle::first-letter {
+  color: rgb(255, 243, 74);
+}
+#modal-title-hyein::first-letter {
+  color: rgb(167, 50, 167);
+}
+#modal-title-minji::first-letter {
+  color: rgb(68, 68, 252);
+}
+#modal-title-haerin::first-letter {
+  color: rgb(121, 255, 81);
+}
+
+/* Close controls */
+.modal-close-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  cursor: pointer;
+  z-index: inherit;
+  opacity: 0;
+}
+
+.modal-close-button {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  font-family: "Bungee", serif;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+}
+
+.content-final {
+  display: grid;
+  place-items: center;
+}
+.modal-text-final {
+  width: 70%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin: auto;
-  border-radius: 100%;
+  
+  box-sizing: border-box;
+}
+.text-final {
+  color: white;
+  text-align: left;
+  margin-top: 10px;
+  font-size: x-large;
+  font-family: "Changa One", serif;
+  font-weight: lighter;
+  font-style: normal;
+  text-wrap: pretty;
+  width: 100%;
 }
 
-@keyframes contentAppearing {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+
+.hidden-message{
+  color: white;
+  opacity: 0;
 }
 
-@keyframes modalAppearing {
-  0% {
-    transform: scale(0);
-    border-radius: 100%;
-    opacity: 0;
-  }
-  50% {
-    border-radius: 50%;
-  }
-  100% {
-    transform: scale(1);
-    border-radius: 0%;
-    opacity: 1;
-  }
+.hidden-message:hover{
+  opacity: 1;
 }

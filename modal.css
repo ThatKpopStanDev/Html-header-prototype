@@ -22,6 +22,7 @@
   width: 80%;
   overflow-y: auto;
   height: 70dvh;
+  left: -8%;
   display: flex;
   flex-flow: column;
   opacity: 0;
@@ -86,8 +87,8 @@ canvas {
 }
 
 .modal-image {
-  width: 60%;
-  height: 60%;
+  width: 50%;
+  height: 50%;
   border-radius: 50%;
 }
 
@@ -134,6 +135,7 @@ canvas {
 .content-final {
   display: grid;
   place-items: center;
+  transform: translate(10%, 0px) !important;
 }
 .modal-text-final {
   width: auto;
@@ -180,113 +182,43 @@ canvas {
 }
 
 @media (max-width: 1200px) {
-  .text-final {
-    color: white;
-    text-align: left;
-    margin-top: 10px;
-    font-size: large;
-    font-family: "Changa One", serif;
-    font-weight: lighter;
-    font-style: normal;
-    text-wrap: pretty;
-    width: 100%;
+  .modal-content {
+    width: 80%;
+  }
+  .content-final {
+    transform: translate(10%, 0px) !important;
+  }
+  .modal-title{
+    font-size: xx-large;
+  }
+  .text-final{
+    font-size: large !important;
   }
   .modal-text {
-    color: white;
-    text-align: left;
-    margin-top: 10px;
-    font-size: large;
-    font-family: "Changa One", serif;
-    font-weight: lighter;
-    font-style: normal;
-    text-wrap: pretty;
-  }
-  .modal-title {
-    font-weight: bold;
-    color: white;
-    font-size: xx-large;
-    text-align: center;
-    font-family: "Bungee", serif;
-    font-weight: 400;
-    font-style: normal;
-    text-wrap: pretty;
-  }
-
-  .modal-image {
-    width: 70%;
-    height: 60%;
-    border-radius: 50%;
-  }
-  .modal-content {
-    position: relative;
-    z-index: 10;
-    width: 80%;
-    overflow-y: auto;
-    height: 50dvh;
-    display: flex;
-    flex-flow: column;
-    opacity: 0;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-    scrollbar-width: none;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: 0px;
+    font-size: large !important;
   }
 }
 
 @media (max-width: 768px) {
-  .text-final {
-    color: white;
-    text-align: left;
-    margin-top: 10px;
-    font-size: large;
-    font-family: "Changa One", serif;
-    font-weight: lighter;
-    font-style: normal;
-    text-wrap: pretty;
-    width: 100%;
+  .content-final {
+    transform: translate(10%, 0px) !important;
   }
   .modal-text {
-    color: white;
-    text-align: left;
-    margin-top: 10px;
-    font-size: large;
-    font-family: "Changa One", serif;
-    font-weight: lighter;
-    font-style: normal;
-    text-wrap: pretty;
+    font-size: large !important;
   }
-  .modal-title {
-    font-weight: bold;
-    color: white;
-    font-size: xx-large;
-    text-align: center;
-    font-family: "Bungee", serif;
-    font-weight: 400;
-    font-style: normal;
-    text-wrap: pretty;
+  .text-final {
+    font-size: large !important;
   }
+}
 
-  .modal-image {
-    width: 80%;
-    height: 60%;
-    border-radius: 50%;
-  }
+@media (max-width: 576px) {
   .modal-content {
-    position: relative;
-    z-index: 10;
-    width: 80%;
-    overflow-y: auto;
-    height: 50dvh;
-    display: flex;
-    flex-flow: column;
-    opacity: 0;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-    scrollbar-width: none;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: 0px;
+    left: -6% !important;
+  }
+  .text-final {
+    font-size: large !important;
+  }
+  .content-final {
+    transform: translate(10%, 0px) !important;
   }
 }

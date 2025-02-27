@@ -376,3 +376,41 @@ body {
     overflow: hidden;
   }
 }
+@media (max-width: 500px) {
+  .letter-n,
+  .letter-z,
+  .letter-j {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    height: auto;
+    opacity: 0;
+  }
+
+  .letter-n {
+    animation: TitleAppearingN 3s forwards;
+    animation-delay: 0s;
+    top: 2%;
+  }
+
+  .letter-z {
+    animation: TitleAppearingZ 3s forwards;
+    animation-delay: 1s;
+    top: 2%;
+  }
+
+  .letter-j {
+    width: 17%;
+    top: 0;
+    animation: TitleAppearingJ 3s forwards;
+    animation-delay: 2s;
+  }
+  .image_container {
+    position: absolute;
+    width: 53dvh;
+    left: -45px;
+    height: 60%;
+    overflow: hidden;
+  }
+}

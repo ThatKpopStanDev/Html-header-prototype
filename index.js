@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const p = document.createElement("p");
           p.classList.add("modal-text");
-          p.textContent = item.description;
+          p.innerHTML = item.description;
           textContainer.appendChild(p);
           textSector.appendChild(textContainer);
 
@@ -284,9 +284,9 @@ document.addEventListener("DOMContentLoaded", () => {
         contentSector.id = `content-final-${modalInfo.length}`;
 
         const imageSector = document.createElement("div");
-        imageSector.classList.add("modal-sector");
+        imageSector.classList.add("modal-sector-final");
         const img = document.createElement("img");
-        img.classList.add("modal-image");
+        img.classList.add("modal-image-final");
         img.src = modalFinal.image;
         img.alt = modalFinal.title ? modalFinal.title : "Imagen del modal";
         imageSector.appendChild(img);

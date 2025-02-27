@@ -168,20 +168,165 @@ document.addEventListener("DOMContentLoaded", () => {
 
   container.addEventListener("touchend", () => {
     if (foundImage) {
-      modal.style.display = "flex";
-      modalContent.style.display = "grid";
-      button.style.display = "block";
-      modal.style.animation = "modalAppearing 1s ease-in-out forwards";
-      const canvasElement = modal.getElementsByTagName("canvas")[0];
-      if (canvasElement) {
-        canvasElement.style.animation =
-          "modalAppearing 1s ease-in-out forwards";
+      container.style.pointerEvents = "none";
+      const imageId = foundImage.id;
+      let modalInfo = modalData[imageId];
+      let modalSectors = modalInfo.slice(0, -1);
+      let modalFinal = modalInfo[modalInfo.length - 1];
+
+      const canvas = modal.getElementsByTagName("canvas")[0];
+      modalContent.innerHTML = "";
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const contentSector = entry.target;
+
+            if (entry.isIntersecting) {
+              gsap.fromTo(
+                contentSector,
+                {
+                  opacity: 0,
+                  y: 50,
+                },
+                {
+                  opacity: 1,
+                  y: 0,
+                  duration: 1,
+                  ease: "power1.out",
+                }
+              );
+            } else {
+              gsap.fromTo(
+                contentSector,
+                {
+                  opacity: 1,
+                },
+                {
+                  opacity: 0,
+                  duration: 1,
+                  ease: "power1.out",
+                }
+              );
+            }
+          });
+        },
+        {
+          threshold: 0.4,
+          root: null,
+        }
+      );
+      if (modalSectors) {
+        modalSectors.forEach((item, index) => {
+          const contentSector = document.createElement("div");
+          contentSector.classList.add("content-sector");
+          contentSector.id = `content-sector-${index}`;
+
+          const imageSector = document.createElement("div");
+          imageSector.classList.add("modal-sector");
+          const img = document.createElement("img");
+          img.classList.add("modal-image");
+          img.src = item.image;
+          img.alt = item.title ? item.title : "Imagen del modal";
+          imageSector.appendChild(img);
+
+          const textSector = document.createElement("div");
+          textSector.classList.add("modal-sector");
+          const textContainer = document.createElement("div");
+          textContainer.classList.add("modal-text-sector");
+
+          if (item.title) {
+            const h1 = document.createElement("h1");
+            h1.classList.add("modal-title");
+            h1.id = `modal-title-${imageId}`;
+            h1.textContent = item.title;
+            textContainer.appendChild(h1);
+          }
+
+          const p = document.createElement("p");
+          p.classList.add("modal-text");
+          p.innerHTML = item.description;
+          textContainer.appendChild(p);
+          textSector.appendChild(textContainer);
+
+          contentSector.appendChild(imageSector);
+          contentSector.appendChild(textSector);
+
+          modalContent.appendChild(contentSector);
+
+          setTimeout(() => {
+            observer.observe(contentSector);
+          }, 10);
+        });
       }
+      if (modalFinal) {
+        const contentSector = document.createElement("div");
+        contentSector.classList.add("content-final");
+        contentSector.id = `content-final-${modalInfo.length}`;
+
+        const imageSector = document.createElement("div");
+        imageSector.classList.add("modal-sector-final");
+        const img = document.createElement("img");
+        img.classList.add("modal-image-final");
+        img.src = modalFinal.image;
+        img.alt = modalFinal.title ? modalFinal.title : "Imagen del modal";
+        imageSector.appendChild(img);
+
+        const textSector = document.createElement("div");
+        textSector.classList.add("modal-text-final");
+        const textContainer = document.createElement("div");
+        textContainer.classList.add("modal-text-sector");
+        const p = document.createElement("p");
+        p.classList.add("text-final");
+        p.innerHTML = modalFinal.description;
+        textContainer.appendChild(p);
+        textSector.appendChild(textContainer);
+
+        contentSector.appendChild(imageSector);
+        contentSector.appendChild(textSector);
+
+        modalContent.appendChild(contentSector);
+        setTimeout(() => {
+          observer.observe(contentSector);
+        }, 10);
+      }
+      modal.classList.add("show");
+      gsap.fromTo(
+        canvas,
+        { opacity: 0, scale: 0, borderRadius: "100%" },
+        {
+          opacity: 1,
+          scale: 1,
+          borderRadius: "0%",
+          duration: 1,
+          ease: "ease-in-out",
+        }
+      );
+      gsap.fromTo(
+        modal,
+        { opacity: 0, scale: 0, borderRadius: "100%" },
+        {
+          opacity: 1,
+          scale: 1,
+          borderRadius: "0%",
+          duration: 1,
+          ease: "ease-in-out",
+        }
+      );
+
       setTimeout(() => {
-        button.style.animation =
-          "modalCloseButtonAppearing 1s ease-in-out forwards";
-        modalContent.style.animation =
-          "contentAppearing 1s ease-in-out forwards";
+        gsap.fromTo(
+          modalContent,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 1, stagger: 0.5, ease: "power2.out" }
+        );
+      }, 700);
+
+      setTimeout(() => {
+        gsap.fromTo(
+          button,
+          { opacity: 0, scale: 0 },
+          { opacity: 1, scale: 1, duration: 1, ease: "ease-in-out" }
+        );
       }, 1000);
     }
   });
@@ -193,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let modalInfo = modalData[imageId];
       let modalSectors = modalInfo.slice(0, -1);
       let modalFinal = modalInfo[modalInfo.length - 1];
-      console.log(modalFinal);
+
       const canvas = modal.getElementsByTagName("canvas")[0];
       modalContent.innerHTML = "";
       const observer = new IntersectionObserver(
